@@ -20,7 +20,7 @@
                 <div class="button" id="btn8">8</div>
                 <div class="button" id="btn9">9</div>
                 <div class="button" id="btnplus">+</div>
-                <div class="button" id="btn6">4</div>
+                <div class="button" id="btn4">4</div>
                 <div class="button" id="btn5">5</div>
                 <div class="button" id="btn6">6</div>
                 <div id="btneq" class="button" >=</div>
@@ -54,6 +54,17 @@
         const content = document.createElement('div');
         content.classList.add('content');
 
+        const numin = function(btnNum){
+            if (first === true) {
+                elso = elso + btnNum;
+                content.textContent = elso;
+            } else {
+                masodik = masodik + btnNum;
+                content.textContent = elso+operator+masodik;
+            };
+            screen.appendChild(content);
+        };
+
         one.addEventListener('click', () => {
             if (first === true) {
                 elso = elso + "1";
@@ -66,18 +77,11 @@
         });
 
         two.addEventListener('click', () => {
-            if (first === true) {
-                elso = elso + "2";
-                content.textContent = elso;
-            } else {
-                masodik = masodik + "2";
-                content.textContent = elso+operator+masodik;
-            };
-            screen.appendChild(content);
+            numin("2")
         });
 
         three.addEventListener('click', () => {
-         numin("3")
+            numin("3")
         });
         
         four.addEventListener('click', () => {
@@ -88,7 +92,7 @@
          numin("5")
         });
         
-        six.addEventListener('click', () => {
+       six.addEventListener('click', () => {
          numin("6")
         });
         
@@ -111,6 +115,18 @@
             screen.appendChild(content);
         });
 
+        minus.addEventListener('click', () => {
+            opin("-");
+        });
+
+        mult.addEventListener('click', () => {
+            opin("*")
+        });
+
+        divi.addEventListener('click', () => {
+            opin("/")
+        });
+
         eq.addEventListener('click', () => {
             elso = parseInt(elso);
             masodik = parseInt(masodik);
@@ -130,14 +146,13 @@
             screen.appendChild(content);
         });
 
-        const numin = function(btnNum){
-            if (first === true) {
-                elso = elso + btnNum;
-                content.textContent = elso;
-            } else {
-                masodik = masodik + btnNum;
-                content.textContent = elso+operator+masodik;
-            };
+       
+
+        const opin = function(op){
+            operator = op
+            first = false;
+            content.textContent = elso+operator;
+            console.log(operator);
             screen.appendChild(content);
         };
 
@@ -160,12 +175,12 @@
         const operate = function(a,operator,b) {
             if (operator =="+") {
                 return add(a,b);
-            } else if (op=== "-") {
-                subtract(a,b);
-            } else if (op === "*") {
-                multiply(a,b);
-            } else if (op === "/") {
-                divide(a,b);
+            } else if (operator=== "-") {
+                return subtract(a,b);
+            } else if (operator === "*") {
+                return multiply(a,b);
+            } else if (operator === "/") {
+                return divide(a,b);
              };
         };
         
