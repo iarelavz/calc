@@ -75,6 +75,34 @@
             };
             screen.appendChild(content);
         });
+
+        three.addEventListener('click', () => {
+         numin("3")
+        });
+        
+        four.addEventListener('click', () => {
+         numin("4")
+        });
+
+        five.addEventListener('click', () => {
+         numin("5")
+        });
+        
+        six.addEventListener('click', () => {
+         numin("6")
+        });
+        
+        seven.addEventListener('click', () => {
+         numin("7")
+        });
+        
+        eight.addEventListener('click', () => {
+         numin("8")
+        });
+        
+        nine.addEventListener('click', () => {
+         numin("9")
+        });
         
         plus.addEventListener('click', () => {
             operator = "+"
@@ -101,6 +129,17 @@
             content.textContent = '';
             screen.appendChild(content);
         });
+
+        const numin = function(btnNum){
+            if (first === true) {
+                elso = elso + btnNum;
+                content.textContent = elso;
+            } else {
+                masodik = masodik + btnNum;
+                content.textContent = elso+operator+masodik;
+            };
+            screen.appendChild(content);
+        };
 
         const add = function(a,b) {
 	        return(a+b);
