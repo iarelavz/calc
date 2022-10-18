@@ -1,0 +1,67 @@
+#bodcont {
+    
+}
+
+#container {
+    border: solid black;
+    padding: 10px;
+    background-color: #060708;
+    max-width: 25%;
+    margin:0 auto;
+    border-radius: 2%;
+}
+
+.buttongrid {
+    display: grid;
+    grid-template-columns: 
+        repeat(4, 1fr);
+    grid-gap: 8px;
+    margin-top: 25px;
+    background-color: #060708;
+}  
+
+#screen {
+    grid-column: span 4;
+    border: solid #060708;
+    height: 150px;
+    background-color: #060708;
+    border-radius: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 10px;
+}
+
+.content{
+    font-size: 50px;
+    color: white;
+}
+
+.button:nth-child(12){
+    grid-column-start: 4;
+    grid-row-start:  3;
+    grid-row-end: 5;
+}
+
+.button{
+  border: solid black;
+  aspect-ratio: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  background: rgb(2,0,36);
+  background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(10,10,10,1) 37%, rgba(50,57,59,1) 71%); 
+  color: white;
+  font-size: 30;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+  .button:hover {
+    border-color: white;
+    color: white;
+    background-color: #E3C770;
+    transition: 0.7s;
+}
