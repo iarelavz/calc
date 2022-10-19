@@ -37,11 +37,7 @@
     color: white;
 }
 
-.button:nth-child(12){
-    grid-column-start: 4;
-    grid-row-start:  3;
-    grid-row-end: 5;
-}
+
 
 .button{
   border: solid black;

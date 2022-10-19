@@ -27,6 +27,7 @@
                 <div class="button" id="btn1">1</div>
                 <div class="button" id="btn2">2</div>
                 <div class="button" id ="btn3">3</div>
+                <div class="button" id="btn0">0</div>
             </div>
         </div>      
     </div>
@@ -36,6 +37,7 @@
         let operator = "";
         let first = true;
         const screen = document.querySelector('#screen');
+        const btnzero = document.querySelector('#btn0');
         const one = document.querySelector('#btn1');
         const two = document.querySelector('#btn2');
         const three = document.querySelector('#btn3');
@@ -64,6 +66,10 @@
             };
             screen.appendChild(content);
         };
+
+        btnzero.addEventListener('click', () => {
+            numin("0")
+        });
 
         one.addEventListener('click', () => {
             if (first === true) {
