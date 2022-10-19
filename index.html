@@ -32,10 +32,11 @@
         </div>      
     </div>
     <script> 
+        // global variables for computing
         let elso = "";
         let masodik = "";
         let operator = "";
-        let first = true;
+        let first = true; // separates the first and second part of the operation
         const screen = document.querySelector('#screen');
         const btnzero = document.querySelector('#btn0');
         const one = document.querySelector('#btn1');
@@ -72,14 +73,7 @@
         });
 
         one.addEventListener('click', () => {
-            if (first === true) {
-                elso = elso + "1";
-                content.textContent = elso;
-            } else {
-                masodik = masodik + "1";
-                content.textContent = elso+operator+masodik;
-            };
-            screen.appendChild(content);
+            numin("1")
         });
 
         two.addEventListener('click', () => {
@@ -115,10 +109,7 @@
         });
         
         plus.addEventListener('click', () => {
-            operator = "+"
-            first = false;
-            content.textContent = elso+operator;
-            screen.appendChild(content);
+            opin("+");
         });
 
         minus.addEventListener('click', () => {
@@ -152,13 +143,10 @@
             screen.appendChild(content);
         });
 
-       
-
         const opin = function(op){
             operator = op
             first = false;
             content.textContent = elso+operator;
-            console.log(operator);
             screen.appendChild(content);
         };
 
@@ -179,6 +167,7 @@
         };
         
         const operate = function(a,operator,b) {
+            let result;
             if (operator =="+") {
                 return add(a,b);
             } else if (operator=== "-") {
@@ -186,7 +175,8 @@
             } else if (operator === "*") {
                 return multiply(a,b);
             } else if (operator === "/") {
-                return divide(a,b);
+                result = divide(a,b);
+                return Math.round(result * 10000) / 10000
              };
         };
         
