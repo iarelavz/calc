@@ -57,7 +57,7 @@
         const content = document.createElement('div');
         content.classList.add('content');
 
-        const numin = function(btnNum){
+        const numin = function(btnNum){ //input a number,to first or the second part of the operation
             if (first === true) {
                 elso = elso + btnNum;
                 content.textContent = elso;
@@ -168,9 +168,9 @@
         
         const operate = function(a,operator,b) {
             let result;
-            if (operator =="+") {
+            if (operator ==="+") {
                 return add(a,b);
-            } else if (operator=== "-") {
+            } else if (operator === "-") {
                 return subtract(a,b);
             } else if (operator === "*") {
                 return multiply(a,b);

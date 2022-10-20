@@ -6,7 +6,7 @@
     border: solid black;
     padding: 10px;
     background-color: #060708;
-    max-width: 25%;
+    max-width: 300px;
     margin:0 auto;
     border-radius: 2%;
 }
@@ -33,10 +33,9 @@
 }
 
 .content{
-    font-size: 50px;
+    font-size: 3rem;
     color: white;
 }
-
 
 
 .button{
@@ -50,7 +49,7 @@
   background: rgb(2,0,36);
   background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(10,10,10,1) 37%, rgba(50,57,59,1) 71%); 
   color: white;
-  font-size: 30;
+  font-size: 20 rem;
   font-weight: bold;
   border-radius: 50%;
 }
