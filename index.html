@@ -147,10 +147,14 @@
         });
 
         const opin = function(op){
-            operator = op;
+            
             if (first === false) {
                 equalizer();
+                operator = op;
+                content.textContent = elso+operator;
+                screen.appendChild(content);
             } else {
+                operator = op;
                 first = false;
                 content.textContent = elso+operator;
                 screen.appendChild(content);
