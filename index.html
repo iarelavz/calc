@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> 
+    <title>G's calculator</title>
 </head>
 <body>
     <div id="bodcont">
@@ -28,6 +31,7 @@
                 <div class="button" id="btn2">2</div>
                 <div class="button" id ="btn3">3</div>
                 <div class="button" id="btn0">0</div>
+                <div class="button" id="btnback">b</div>
             </div>
         </div>      
     </div>
@@ -54,6 +58,7 @@
         const divi = document.querySelector('#btndivi');
         const eq = document.querySelector('#btneq');
         const clear = document.querySelector('#btnC');
+        const bckspace = document.querySelector('#btnback');
         const content = document.createElement('div');
         content.classList.add('content');
 
@@ -67,7 +72,11 @@
             };
             screen.appendChild(content);
         };
-
+        
+        btnback.addEventListener('click', () => {
+            backspace()
+        });
+        
         btnzero.addEventListener('click', () => {
             numin("0")
         });
@@ -125,13 +134,7 @@
         });
 
         eq.addEventListener('click', () => {
-            elso = parseInt(elso);
-            masodik = parseInt(masodik);
-            let val = operate(elso,operator,masodik);
-            content.textContent = val;
-            screen.appendChild(content);
-            elso = val;
-            masodik = "";
+          equalizer();
         });
         
         clear.addEventListener('click', () => {
@@ -144,12 +147,40 @@
         });
 
         const opin = function(op){
-            operator = op
-            first = false;
-            content.textContent = elso+operator;
+            operator = op;
+            if (first === false) {
+                equalizer();
+            } else {
+                first = false;
+                content.textContent = elso+operator;
+                screen.appendChild(content);
+                }
+            };
+
+        const backspace = function() {
+            if (first === true) {
+                elso = elso.slice(0, -1);
+                content.textContent = elso;
+            } else if (masodik.length === 0 && first === false){
+                operator ="";
+                content.textContent = elso;
+                first = true;
+            } else {
+                masodik = masodik.slice(0, -1);
+                content.textContent = elso+operator+masodik;
+            };
             screen.appendChild(content);
         };
 
+        const equalizer = function(){
+            elso = parseInt(elso);
+            masodik = parseInt(masodik);
+            let val = operate(elso,operator,masodik);
+            content.textContent = val;
+            screen.appendChild(content);
+            elso = val;
+            masodik = "";
+        };
         const add = function(a,b) {
 	        return(a+b);
         };
